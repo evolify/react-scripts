@@ -38,7 +38,10 @@ module.exports = (prod, config) => {
     module: {
       rules: [{
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        exclude: {
+          test: /node_modules/,
+          exclude: path.resolve(__dirname, '../public/index.jsx')
+        },
         use: {
           loader: 'babel-loader',
           options: {
