@@ -13,7 +13,7 @@ module.exports = async function dev(app) {
   const webpackConfig = webpackConfigFactory(false, config)
   const compiler = webpack(webpackConfig)
   const server = new WebpackDevServer(compiler, webpackConfig.devServer)
-  const { host, port } = config.devServer
+  const { host, port } = config.webpack.devServer
   server.listen(port, host, () => {
     signale.success(`Start server on ${host}:${port}`)
   })

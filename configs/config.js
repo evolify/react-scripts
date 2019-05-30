@@ -5,15 +5,16 @@ let config = {
   entry: path.join(__dirname, '../public/index.jsx'),
   publicPath: '',
   app: '',
-  devServer: {
-    port: 3000,
-    host: 'localhost',
+  webpack: {
+    devServer: {
+      port: 3000,
+      host: '',
+    }
   },
-  webpack: {},
   babel: {},
   postcss: {}
 }
 module.exports = {
   baseConfig: config,
-  configFile: 'miot.config.js'
+  configFile: 'react-scripts.config.js'
 }

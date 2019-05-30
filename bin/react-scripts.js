@@ -6,13 +6,13 @@ const build = require('../scripts/build')
 const eject = require('../scripts/eject')
 
 program.command('dev [comp]')
-  .description('Run an single component without any config. Now for react only.')
+  .description('Run an single component in development.')
   .action((comp) => {
     dev(comp)
   })
 
 program.command('build [comp]')
-  .description('Run an single component without any config. Now for react only.')
+  .description('Run an single component in production.')
   .action((comp) => {
     build(comp)
   })
@@ -24,6 +24,6 @@ program.command('eject')
   })
 program.version(pkg.version)
   .action(() => {
-    console.log('hello')
+    console.log('hello.')
   })
   .parse(process.argv)

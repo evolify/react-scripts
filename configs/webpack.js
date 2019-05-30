@@ -83,16 +83,11 @@ module.exports = (prod, config) => {
     },
     devServer: {
       contentBase: config.outputDir,
-      allowedHosts: [
-        ip,
-        'localhost'
-      ],
-      host: ip,
+      disableHostCheck: true,
+      useLocalIp: true,
+      open: 'Google Chrome',
       hot: true,
-      publicPath: '',
-      after: ()=>{
-        console.log('serve in ', ip)
-      }
+      publicPath: ''
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -105,7 +100,7 @@ module.exports = (prod, config) => {
       prod && new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash:8].css'
       }),
-      !prod && new webpack.HotModuleReplacementPlugin(),
+      // !prod && new webpack.HotModuleReplacementPlugin(),
       new vConsolePlugin({
         enable: !prod
       })
