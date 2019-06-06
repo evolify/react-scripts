@@ -10,7 +10,15 @@ const mergeConfig = (options) => {
   return{
     ...baseConfig,
     ...options,
-    ...config
+    ...config,
+    webpack: {
+      ...baseConfig.webpack,
+      ...(config.webpack || {}),
+      devServer: {
+        ...baseConfig.webpack.devServer,
+        ...(config && config.webpack && config.webpack.devServer || {})
+      }
+    }
   }
 }
 

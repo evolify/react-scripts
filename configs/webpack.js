@@ -54,7 +54,12 @@ module.exports = (prod, config) => {
         use: styleLoader(['css-loader'])
       }, {
         test: /\.scss$/,
-        use: styleLoader(['css-loader', 'sass-loader'])
+        use: styleLoader(['css-loader', {
+          loader: "sass-loader",
+          options: {
+              implementation: require("sass")
+          }
+        }])
       }, {
         test: /\.(jpe?g|png|gif|bmp|svg)$/,
         use: {

@@ -1,6 +1,6 @@
 {
   "name": "@evolify/react-scripts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "repository": "git@github.com:evolify/react-scripts.git",
   "author": "孤狼 <wolf@evolify.cn>",
@@ -25,26 +25,23 @@
     "file-loader": "^3.0.1",
     "fs-extra": "^7.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "ip": "^1.1.5",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-hot-loader": "^4.8.3",
+    "sass": "^1.20.3",
     "sass-loader": "^7.1.0",
     "shelljs": "^0.8.3",
     "signale": "^1.4.0",
     "style-loader": "^0.23.1",
-    "styled-jsx": "^3.2.1",
-    "styled-jsx-plugin-postcss": "^2.0.0",
-    "styled-jsx-plugin-sass": "^1.0.0",
     "url-loader": "^1.1.2",
     "vconsole-webpack-plugin": "^1.4.2",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
-    "webpack-merge": "^4.2.1",
-    "ip": "^1.1.5"
+    "webpack-merge": "^4.2.1"
   }
 }
