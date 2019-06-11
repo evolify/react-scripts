@@ -47,6 +47,7 @@ module.exports = {
     entry: path.join(__dirname, '../public/index.jsx'), // the same to webpack.entry, built in.
     publicPath: process.env.NODE_ENV === 'production' ? '//cdn.xxx.com': '', // deafult is ''
     app: '', // root component, can also be set as a param in miot-react-scripts
+    typescript: false, // if you want to use ts, set this option to `true`
     webpack: {
       devServer: {
         port: 3000,

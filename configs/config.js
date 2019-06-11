@@ -5,6 +5,7 @@ let config = {
   entry: path.join(__dirname, '../public/index.jsx'),
   publicPath: '',
   app: '',
+  typescript: false,
   webpack: {
     devServer: {
       port: 3000,

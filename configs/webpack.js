@@ -37,7 +37,7 @@ module.exports = (prod, config) => {
     },
     module: {
       rules: [{
-        test: /\.jsx?$/,
+        test: config.typescript ? /\.(js|ts)x?$/ : /\.jsx?$/,
         exclude: {
           test: /node_modules/,
           exclude: path.resolve(__dirname, '../public/index.jsx')
@@ -46,7 +46,14 @@ module.exports = (prod, config) => {
           loader: 'babel-loader',
           options: {
             configFile: path.resolve(__dirname, './babel.config.js'),
-            overrides: [config.babel || {}]
+            overrides: [
+              {
+                presets: [
+                  config.typescript && "@babel/typescript"
+                ].filter(Boolean)
+              },
+              config.babel || {}
+            ]
           }
         }
       }, {
@@ -105,7 +112,7 @@ module.exports = (prod, config) => {
       prod && new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash:8].css'
       }),
-      // !prod && new webpack.HotModuleReplacementPlugin(),
+      !prod && new webpack.HotModuleReplacementPlugin(),
       new vConsolePlugin({
         enable: !prod
       })
