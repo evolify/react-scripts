@@ -1,4 +1,3 @@
-const fs = require('fs-extra')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const signale = require('signale')

@@ -1,5 +1,3 @@
-const path = require('path')
-const shell = require('shelljs')
 const webpack = require('webpack')
 const paths = require('../configs/paths')
 const webpackConfigFactory = require('../configs/webpack')

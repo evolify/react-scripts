@@ -4,10 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const vConsolePlugin = require('vconsole-webpack-plugin')
 const merge = require('webpack-merge')
-const ip = require('ip').address()
 
 module.exports = (prod, config) => {
   process.env.NODE_ENV = process.env.NODE_ENV || (prod ? 'production' : 'development')
+  process.env.TYPESCRIPT_ENABLE = config.typescript
   const styleLoader = loaders => [
     prod ? MiniCssExtractPlugin.loader : 'style-loader',
     ...loaders,
@@ -47,11 +47,6 @@ module.exports = (prod, config) => {
           options: {
             configFile: path.resolve(__dirname, './babel.config.js'),
             overrides: [
-              {
-                presets: [
-                  config.typescript && "@babel/typescript"
-                ].filter(Boolean)
-              },
               config.babel || {}
             ]
           }
@@ -103,7 +98,8 @@ module.exports = (prod, config) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: config.template
+        template: config.template,
+        title: config.title
       }),
       new webpack.EnvironmentPlugin({
         ...process.env,
