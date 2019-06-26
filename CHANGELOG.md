@@ -1,3 +1,7 @@
+### 1.4.0
+* ### feature:
+  1. Add css module via file name.
+
 ### 1.3.0
 * ### feature: 
   1. Add title supoort;

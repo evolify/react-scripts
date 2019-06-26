@@ -8,8 +8,15 @@ const merge = require('webpack-merge')
 module.exports = (prod, config) => {
   process.env.NODE_ENV = process.env.NODE_ENV || (prod ? 'production' : 'development')
   process.env.TYPESCRIPT_ENABLE = config.typescript
-  const styleLoader = loaders => [
+  const { DEPLOY_ENV } = process.env
+  const styleLoader = (loaders = []) => modules => [
     prod ? MiniCssExtractPlugin.loader : 'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        modules
+      }
+    },
     ...loaders,
     {
       loader: 'postcss-loader',
@@ -53,15 +60,28 @@ module.exports = (prod, config) => {
         }
       }, {
         test: /\.css$/,
-        use: styleLoader(['css-loader'])
+        exclude: /\.module\.css$/,
+        use: styleLoader()(false)
+      }, {
+        test: /\.module\.css$/,
+        use: styleLoader()(true)
       }, {
         test: /\.scss$/,
-        use: styleLoader(['css-loader', {
+        exclude: /\.module\.scss$/,
+        use: styleLoader([{
           loader: "sass-loader",
           options: {
-              implementation: require("sass")
+            implementation: require("sass")
           }
-        }])
+        }])(false)
+      }, {
+        test: /\.module\.scss$/,
+        use: styleLoader([{
+          loader: "sass-loader",
+          options: {
+            implementation: require("sass")
+          }
+        }])(true)
       }, {
         test: /\.(jpe?g|png|gif|bmp|svg)$/,
         use: {
@@ -110,7 +130,7 @@ module.exports = (prod, config) => {
       }),
       !prod && new webpack.HotModuleReplacementPlugin(),
       new vConsolePlugin({
-        enable: !prod
+        enable: config.mobile && DEPLOY_ENV === 'staging'
       })
     ].filter(Boolean)
   }, config.webpack)

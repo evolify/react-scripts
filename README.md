@@ -48,6 +48,7 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? '//cdn.xxx.com': '', // deafult is ''
     app: '', // root component, can also be set as a param in miot-react-scripts
     typescript: false, // if you want to use ts, set this option to `true`
+    mobile: false,
     webpack: {
       devServer: {
         port: 3000,
@@ -64,3 +65,6 @@ module.exports = {
 ```
 
 webpack 、 babel、postcss, just follow the official doc, now only support `object` type.
+
+### CSS Module
+By default you can enable css module just to name you css/scss file to `style.module.css` / `style.module.scss`

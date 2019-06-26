@@ -7,6 +7,7 @@ let config = {
   publicPath: '',
   app: '',
   typescript: false,
+  mobile: false,
   webpack: {
     devServer: {
       port: 3000,
