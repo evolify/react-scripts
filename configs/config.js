@@ -6,6 +6,7 @@ let config = {
   entry: path.join(__dirname, '../public/index.jsx'),
   publicPath: '',
   app: '',
+  src: path.resolve(process.cwd(), 'src'),
   typescript: false,
   mobile: false,
   webpack: {

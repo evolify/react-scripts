@@ -1,6 +1,6 @@
 {
   "name": "@evolify/react-scripts",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "index.js",
   "repository": "git@github.com:evolify/react-scripts.git",
   "author": "孤狼 <wolf@evolify.cn>",

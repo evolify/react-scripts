@@ -102,8 +102,8 @@ module.exports = (prod, config) => {
       }]
     },
     resolve: {
-      modules: [path.resolve(process.cwd(), 'node_modules'), path.join(__dirname, '../node_modules')],
-      extensions: ['.js', '.jsx']
+      modules: [config.src, path.resolve(process.cwd(), 'node_modules'), path.join(__dirname, '../node_modules')],
+      extensions: ['.js', '.jsx', config.typescript && '.ts', config.typescript && '.tsx'].filter(Boolean)
     },
     resolveLoader: {
       modules: [path.join(__dirname, '../node_modules'), path.resolve(process.cwd(), 'node_modules')],
