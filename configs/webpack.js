@@ -40,7 +40,7 @@ module.exports = (prod, config) => {
     output: {
       path: config.outputDir,
       filename: prod ? 'js/[name].[contenthash:8].js' : 'js/[name].js',
-      publicPath: prod && config.publicPath || '',
+      publicPath: prod && config.publicPath || '/',
     },
     module: {
       rules: [{
@@ -114,7 +114,8 @@ module.exports = (prod, config) => {
       useLocalIp: true,
       open: 'Google Chrome',
       hot: true,
-      publicPath: ''
+      publicPath: '/',
+      historyApiFallback: true
     },
     plugins: [
       new HtmlWebpackPlugin({
