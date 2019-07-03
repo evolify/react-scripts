@@ -1,4 +1,8 @@
 const path = require('path')
+
+/**
+ * @type {import('../config')}
+ */
 let config = {
   template: path.join(__dirname, '../public/index.html'),
   title: '',

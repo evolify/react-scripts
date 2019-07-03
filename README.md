@@ -39,7 +39,11 @@ By default , `miot-react-scripts` will work well without any configuration. `sas
 You can still config what you want in `react-scripts.config.js` file in your project root dir.
 
 ```js
-// react-scripts.config.js
+/**
+ * Add this to enable vscode intellisence.
+ * 
+ * @type {import('@evolify/react-scripts')}
+ */
 module.exports = {
   {
     template: path.join(__dirname, 'public/index.html'), // html template, built in miot-react-scripts by default.
