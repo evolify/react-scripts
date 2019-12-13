@@ -44,7 +44,7 @@ module.exports = (prod, config) => {
     },
     module: {
       rules: [{
-        test: config.typescript ? /\.(js|ts)x?$/ : /\.jsx?$/,
+        test: config.typescript ? /\.(j|t)sx?$/ : /\.jsx?$/,
         exclude: {
           test: /node_modules/,
           exclude: path.resolve(__dirname, '../public/index.jsx')
